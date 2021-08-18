@@ -1,21 +1,15 @@
-# Title
-
+# Recipe Finder
 
 ## Directions
-
-
-## Motivation
-
-
 ## Build Status
-
-
-## Tech/Framework used
+In Progress
+## Tech/Framework
 - HTML
 - CSS
 - JavaScript
-
+- Bootstrap
 # API Used
-themealdb.com
-
 TheMealDB: An open, crowd-sourced database of Recipes from around the world.
+
+https://www.themealdb.com/
+## Motivation
