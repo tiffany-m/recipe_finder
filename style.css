@@ -5,3 +5,11 @@
 body {
 
 }
+
+input[type="text"] {
+  width: 300px;
+}
+
+img {
+  width: 200px;
+}

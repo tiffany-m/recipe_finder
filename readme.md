@@ -6,7 +6,7 @@ In Progress
 ## Tech/Framework
 - HTML
 - CSS
-- JavaScript
+- JavaScript (fetch for the API)
 - Bootstrap
 # API Used
 TheMealDB: An open, crowd-sourced database of Recipes from around the world.
