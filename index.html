@@ -9,16 +9,17 @@
     <title>Recipe Finder</title>
   </head>
   <body>
+    <div class="header">
+      <div class="header-text">Recipe Finder</div>
+      <form id="submit" class="center flex" >
+        <!-- !!!!!!!!!! add attribute  autocomplete="off" !!!!!!!!!!!!!!!!!!-->
+        <input type="text" id="search" placeholder="Search for recipes by main ingredient...">
+        <button class="search-btn" type="submit">
+          <i class="fas fa-search"></i>
+        </button>
+      </form>
+    </div>
     <div class="container">
-      <h1>Recipe Finder</h1>
-      <div class="flex">
-        <form id="submit" class="flex">
-          <input type="text" id="search" placeholder="Search for recipes by main ingredient...">
-          <button class="search-btn" type="submit">
-            <i class="fas fa-search"></i>
-          </button>
-        </form>
-      </div>
       <div id="result-heading"></div>
       <div id="meals" class="meals">
         <!-- Where Search Results Go -->

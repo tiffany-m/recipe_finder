@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Arbutus+Slab&display=swap');
+
 * {
   box-sizing: border-box;
 }
 
 body {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: #b3897d;
+  font-family: serif;
   margin: 0;
 }
 
@@ -27,8 +30,33 @@ body {
   display: flex;
 }
 
+.header {
+  padding: 60px;
+  background-image: url(bg2.jpeg);
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: auto;
+}
+
+.header-text {
+  text-align: center;
+  font-size: 70px;  
+  color: white;
+  font-family: 'Arbutus Slab', serif;
+  text-shadow: 3px 0 0 #000, 0 -3px 0 #000, 0 3px 0 #000, -3px 0 0 #000;
+}
+
+#submit {
+  margin-top: 20px;
+}
+
+h2 {
+  font-family: 'Arbutus Slab', serif;
+}
+
 input, button {
-  border: 1px solid #dedede;
+  border: 3px solid black;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
   font-size: 14px;
@@ -36,11 +64,20 @@ input, button {
   margin: 0;
 }
 
+input {
+  border-right: 0;
+}
+
 input[type="text"] {
   width: 300px;
 }
 
+input:focus {
+  outline: 0;
+}
+
 .search-btn {
+  background-color: white;
   cursor: pointer;
   border-left: 0;
   border-radius: 0;
@@ -48,11 +85,8 @@ input[type="text"] {
   border-bottom-right-radius: 4px;
 }
 
-.random-btn {
-  cursor: pointer;
-  margin-left: 10px;
-  border-top-right-radius: 4px;
-  border-bottom-right-radius: 4px;
+i:active {
+  transform: scale(0.90);
 }
 
 .meals {
@@ -154,6 +188,10 @@ li {
 
   input[type="text"] {
     width: 100%;
+  }
+
+  .header-text {
+    font-size:  55px;;
   }
 }
 
