@@ -100,7 +100,7 @@ function addMealToDOM(meal) {
           ${ingredients
             .map(
               (ing) =>
-                `<li><input type="checkbox" id="${ing}"> <label for="${ing}">${ing}</label></li>`
+                `<li><input type="checkbox"class="checkbox" id="${ing}"> <label for="${ing}">${ing}</label></li>`
             )
             .join('')}
         </ul>
