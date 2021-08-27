@@ -63,16 +63,13 @@ function getMealById(mealID) {
 
 // Fetch random meal
 function randomMeal() {
-  mealsEl.innerHTML = '';
-  resultHeading.innerHTML = '';
-
   fetch(`https://www.themealdb.com/api/json/v1/1/random.php`)
-    .then(res => res.json())
-    .then(data => {
-      const meal = data.meals[0] // Gives us an array, selects first meal
+    .then((res) => res.json())
+    .then((data) => {
+      const meal = data.meals[0]; // Gives us an array, selects first meal
 
-      addMealToDOM(meal)
-    })
+      addMealToDOM(meal);
+    });
 }
 
 // Add meal to DOM
