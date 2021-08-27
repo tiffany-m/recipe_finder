@@ -25,7 +25,8 @@ function searchMeal(e) {
         resultHeading.innerHTML = `<h2>Search results for "${term}"</h2>`
 
         if(data.meals === null) {
-          resultHeading.innerHTML = `<h2>There are no search results for that ingredient.  Please try again.</h2>`;
+          resultHeading.innerHTML = `<h2>There are no search results for that ingredient.  
+          <br>Please try again or click the smiley face button for a random recipe.</h2>`;
         } else {
           mealsEl.innerHTML = data.meals
             .map(
@@ -45,16 +46,30 @@ function searchMeal(e) {
     // Clear search text
     search.value = ''
   } else {
-    resultHeading.innerHTML = `<h2>Please enter an ingredient.</h2>`
+    resultHeading.innerHTML = `<h2>Please enter an ingredient or click the smiley face button for a random recipe.</h2>`;
   }
 }
 
 // Fetch meal by id
 function getMealById(mealID) {
   fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealID}`)
-    .then((res) => res.json())
-    .then((data) => {
+    .then(res => res.json())
+    .then(data => {
       const meal = data.meals[0]
+
+      addMealToDOM(meal)
+    })
+}
+
+// Fetch random meal
+function randomMeal() {
+  mealsEl.innerHTML = '';
+  resultHeading.innerHTML = '';
+
+  fetch(`https://www.themealdb.com/api/json/v1/1/random.php`)
+    .then(res => res.json())
+    .then(data => {
+      const meal = data.meals[0] // Gives us an array, selects first meal
 
       addMealToDOM(meal)
     })
@@ -120,6 +135,7 @@ function addMealToDOM(meal) {
 
 // Event Listeners
 submit.addEventListener('submit', searchMeal)
+random.addEventListener('click', randomMeal)
 
 // Finding out if meal-info div belongs to element clicked on
 mealsEl.addEventListener('click', e => {
