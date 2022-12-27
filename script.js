@@ -18,13 +18,29 @@ function searchMeal(e) {
 
   // Check if no term
   if(term.trim()) {
-    fetch(`www.themealdb.com/api/json/v1/1/filter.php?i=${term}`)
+    fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${term}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-      });
+        resultHeading.innerHTML = `<h2>Search results for "${term}"</h2>`
+
+        if(data.meals === null) {
+          resultHeading.innerHTML = `<h2>There are no search results for that ingredient.  Please try again.</h2>`;
+        } else {
+          mealsEl.innerHTML = data.meals
+            .map(
+              (meal) => `
+            <div class="meal">
+              <h2>${meal.strMeal}</h2>
+              <img src="${meal.strMealThumb}" alt="${meal.strMeal}"/>
+            </div>
+          `
+          )
+          .join('') // makes into a string so they aren't separated by a comma
+        }
+      })
   } else {
-    alert('Please enter a main ingredient')
+    resultHeading.innerHTML = `<h2>Please enter an ingredient.</h2>`
   }
 }
 
