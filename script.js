@@ -31,14 +31,19 @@ function searchMeal(e) {
             .map(
               (meal) => `
             <div class="meal">
-              <h2>${meal.strMeal}</h2>
-              <img src="${meal.strMealThumb}" alt="${meal.strMeal}"/>
+              <img src="${meal.strMealThumb}" alt="${meal.strMeal}" />
+              <div class="meal-info" data-mealID="${meal.idMeal}">
+                <h3>${meal.strMeal}</h3>
+              </div>
             </div>
-          `
-          )
-          .join('') // makes into a string so they aren't separated by a comma
+            `
+            )
+            .join(''); // makes into a string so they aren't separated by a comma
         }
       })
+
+    // Clear search text
+    search.value = ''
   } else {
     resultHeading.innerHTML = `<h2>Please enter an ingredient.</h2>`
   }
