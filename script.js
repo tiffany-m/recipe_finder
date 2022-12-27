@@ -85,7 +85,11 @@ function addMealToDOM(meal) {
       <img src="${meal.strMealThumb}" alt="${meal.strMeal}">
       <div class="single-meal-info">
         <p>
-          ${meal.strCategory ? `Category: ${meal.strCategory}` : ''} | ${meal.strArea ? `Type: ${meal.strArea}` : ''}
+          ${
+            meal.strCategory
+              ? `<strong>Category:</strong> ${meal.strCategory}`
+              : ''
+          } | ${meal.strArea ? `<strong>Type:</strong> ${meal.strArea}` : ''}
         </p>
       </div>
       <div class="main">
@@ -93,13 +97,20 @@ function addMealToDOM(meal) {
         <p>${meal.strInstructions}</p>
         <h2>Ingredients:</h2>
         <ul>
-          ${ingredients.map((ing) => `<li><input type="checkbox" id="${ing}"> <label for="${ing}">${ing}</label></li>`).join('')}
+          ${ingredients
+            .map(
+              (ing) =>
+                `<li><input type="checkbox" id="${ing}"> <label for="${ing}">${ing}</label></li>`
+            )
+            .join('')}
         </ul>
       </div>
       <div>
         <h2>Video Recipe</h2>
         <div class="videoWrapper">
-          <iframe width="420" height="315" src="https://www.youtube.com/embed/${meal.strYoutube.slice(-11)}">
+          <iframe width="420" height="315" src="https://www.youtube.com/embed/${meal.strYoutube.slice(
+            -11
+          )}">
 				  </iframe>
         </div>
       </div>
