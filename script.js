@@ -62,6 +62,8 @@ function getMealById(mealID) {
 
 // Add meal to DOM
 function addMealToDOM(meal) {
+  mealsEl.innerHTML = ''
+
   const ingredients = [];
   // Get all ingredients from the object. Up to 20
   for (let i = 1; i <= 20; i++) {
@@ -75,7 +77,8 @@ function addMealToDOM(meal) {
   }
 
   // Ternary Operator checks to see if there is a category or area before adding
-  // Mapped though ingredients array made above 
+  // Mapped though ingredients array made above
+  // For video had to change url to make it embedded, just needed last 11 digits of original url
   single_mealEl.innerHTML = `
     <div class="single-meal">
       <h1>${meal.strMeal}</h1>
@@ -88,8 +91,15 @@ function addMealToDOM(meal) {
         <p>${meal.strInstructions}</p>
         <h2>Ingredients:</h2>
         <ul>
-          ${ingredients.map(ing => `<li>${ing}</li>`).join('')}
+          ${ingredients.map((ing) => `<li>${ing}</li>`).join('')}
         </ul>
+      </div>
+      <div>
+        <h1>Video Recipe</h1>
+        <div class="videoWrapper">
+          <iframe width="420" height="315" src="https://www.youtube.com/embed/${meal.strYoutube.slice(-11)}">
+				  </iframe>
+        </div>
       </div>
     </div>
   `;
