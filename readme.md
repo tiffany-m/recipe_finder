@@ -16,3 +16,6 @@
 - JavaScript
 
 # API Used
+themealdb.com
+
+TheMealDB: An open, crowd-sourced database of Recipes from around the world.
