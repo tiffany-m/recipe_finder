@@ -63,6 +63,7 @@ function getMealById(mealID) {
 // Add meal to DOM
 function addMealToDOM(meal) {
   mealsEl.innerHTML = ''
+  resultHeading.innerHTML = ''
 
   const ingredients = [];
   // Get all ingredients from the object. Up to 20
