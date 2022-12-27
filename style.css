@@ -17,6 +17,12 @@ body {
   text-align: center;
 }
 
+.center {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
 .flex {
   display: flex;
 }
@@ -113,11 +119,8 @@ input[type="text"] {
   line-height: 1.5;
 }
 
-
-ul {
-}
-
 li {
+  list-style-type: none;
   padding-left: 0;
   text-align: left;
 }

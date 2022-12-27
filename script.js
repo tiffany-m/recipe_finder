@@ -75,7 +75,6 @@ function addMealToDOM(meal) {
       break; // Once there are no ingredients left
     }
   }
-
   // Ternary Operator checks to see if there is a category or area before adding
   // Mapped though ingredients array made above
   // For video had to change url to make it embedded, just needed last 11 digits of original url
@@ -93,7 +92,7 @@ function addMealToDOM(meal) {
         <p>${meal.strInstructions}</p>
         <h2>Ingredients:</h2>
         <ul>
-          ${ingredients.map((ing) => `<li>${ing}</li>`).join('')}
+          ${ingredients.map((ing) => `<li><input type="checkbox"> <label for="">${ing}</label></li>`).join('')}
         </ul>
       </div>
       <div>
