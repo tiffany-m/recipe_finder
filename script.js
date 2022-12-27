@@ -49,5 +49,54 @@ function searchMeal(e) {
   }
 }
 
+// Fetch meal by id
+function getMealById(mealID) {
+  fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealID}`)
+    .then((res) => res.json())
+    .then((data) => {
+      const meal = data.meals[0]
+
+      addMealToDOM(meal)
+    })
+}
+
+// Add meal to DOM
+function addMealToDOM(meal) {
+  const ingredients = [];
+  // Get all ingredients from the object. Up to 20
+  for (let i = 1; i <= 20; i++) {
+    if (meal[`strIngredient${i}`]) {
+      ingredients.push(
+        `${meal[`strIngredient${i}`]} - ${meal[`strMeasure${i}`]}`
+      );
+    } else {
+      break; // Once there are no ingredients left
+    }
+  }
+
+  single_mealEl.innerHTML = `
+    <div class="single-meal">
+      <h1>${meal.strMeal}</h1>
+    </div>
+  `
+}
+
 // Event Listeners
 submit.addEventListener('submit', searchMeal)
+
+// Finding out if meal-info div belongs to element clicked on
+mealsEl.addEventListener('click', e => {
+  const mealInfo = e.path.find(item => { // Goes through all child elements (items)
+    if(item.classList) { // Checking if there are classes
+      return item.classList.contains('meal-info') // Want to return element that has "meal-info" class
+    } else {
+      return false
+    }
+  })
+
+  if(mealInfo) {
+    const mealID = mealInfo.getAttribute('data-mealID') // Getting value for data-mealID attribute
+    
+    getMealById(mealID)
+  }
+})
